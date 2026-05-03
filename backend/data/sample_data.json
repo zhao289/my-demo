@@ -1,0 +1,17 @@
+{
+    "reminders": [
+        {"title": "快递到达提醒", "time": "10:00 AM"},
+        {"title": "冰箱食材不足", "time": "11:00 AM"},
+        {"title": "洗衣机完成提醒", "time": "1:00 PM"}
+    ],
+    "neighbor_items": [
+        {"name": "电钻", "owner": "张三", "status": "可借", "lat": 35.0, "lng": 135.0},
+        {"name": "书籍《Python入门》", "owner": "李四", "status": "可借", "lat": 35.01, "lng": 135.01},
+        {"name": "滑板", "owner": "王五", "status": "借出中", "lat": 35.02, "lng": 135.02}
+    ],
+    "health": {
+        "steps_today": 4500,
+        "sleep_hours": 6,
+        "suggestions": ["多走路", "早点睡觉", "喝水"]
+    }
+}

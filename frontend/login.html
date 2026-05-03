@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录 - 智能社区助手</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>登录</h1>
+    <div class="section">
+        <input type="text" id="username" placeholder="用户名"><br>
+        <input type="password" id="password" placeholder="密码"><br>
+        <button onclick="login()">登录</button>
+        <button onclick="register()">注册</button>
+        <p id="message"></p>
+    </div>
+    <script>
+    function login() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        fetch("http://127.0.0.1:5000/api/login", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({username, password})
+        }).then(res => res.json())
+        .then(data => {
+            if(data.status === "success") {
+                window.location.href = "index.html";
+            } else {
+                document.getElementById("message").innerText = "登录失败";
+            }
+        })
+    }
+
+    function register() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        fetch("http://127.0.0.1:5000/api/register", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({username, password})
+        }).then(res => res.json())
+        .then(data => {
+            document.getElementById("message").innerText = data.status === "success" ? "注册成功" : data.message;
+        })
+    }
+    </script>
+</body>
+</html>
